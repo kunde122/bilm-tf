@@ -10,7 +10,11 @@ from .data import UnicodeCharsVocabulary, Batcher
 DTYPE = 'float32'
 DTYPE_INT = 'int64'
 
-
+'''
+bilm指的是BidirectionalLanguageModel
+由两个单向lstm实现双向lstm，为了不让其预测时候提前关联到目标信息。
+最终有三层embedding [,,]，对三层加权求和得到词向量
+'''
 class BidirectionalLanguageModel(object):
     def __init__(
             self,
